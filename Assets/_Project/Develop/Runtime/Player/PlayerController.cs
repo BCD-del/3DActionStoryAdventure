@@ -19,6 +19,7 @@ namespace Assets._Project.Develop.Runtime.Player
             _input = new PCPlayerInput();
             _mover = new RigidbodyDirectionalMover(_rigidbody, _movementSpeed);
             _rotator = new RigidbodyDirectionalRotator(_rigidbody, _rotationSpeed);
+            print("GitHub Text");
         }
 
         private void Update()
