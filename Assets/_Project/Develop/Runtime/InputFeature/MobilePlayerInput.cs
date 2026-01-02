@@ -8,5 +8,10 @@ namespace Assets._Project.Develop.Runtime.InputFeature
         {
             return Vector3.zero;
         }
+
+        public bool IsJumpKeyPressed()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -9,7 +9,13 @@ namespace Assets._Project.Develop.Runtime.InputFeature
             float horizontalInput = Input.GetAxisRaw("Horizontal");
             float verticalInput = Input.GetAxisRaw("Vertical");
 
+
             return new Vector3(horizontalInput, 0, verticalInput);
+        }
+
+        public bool IsJumpKeyPressed()
+        {
+            return Input.GetKeyDown(KeyCode.Space);
         }
     }
 }
