@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets._Project.Develop.Runtime.PhysicsFeatures
 {
@@ -13,22 +8,27 @@ namespace Assets._Project.Develop.Runtime.PhysicsFeatures
         private float _gravity;
         private GroundChecker _groundChecker;
 
-        public GravityHandler(float gravity, Rigidbody rigidbody)
+        public GravityHandler(float gravity, Rigidbody rigidbody, GroundChecker groundChecker)
         {
             _gravity = gravity;
             _rigidbody = rigidbody;
+            _groundChecker = groundChecker;
         }
         public void ApplyGravity()
         {
-            if (_groundChecker.IsTouched())
+            Debug.Log("Gravity");
+            if (_groundChecker.IsTouched() == false)
             {
-                _gravity = -2;
+                _gravity = 2 + 0.02F;
+                _rigidbody.linearVelocity = Vector3.down * _gravity;
+                Debug.Log(_rigidbody.linearVelocity);
             }
             else
             {
-                _gravity = -2;
+                _gravity = 0;
                 _rigidbody.linearVelocity = Vector3.down * _gravity;
             }
+            
         }
     }
 }

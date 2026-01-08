@@ -22,6 +22,7 @@ namespace Assets._Project.Develop.Runtime.PhysicsFeatures
 
         public bool IsTouched()
         {
+            
             return Physics.OverlapCapsule(_legs.position + Vector3.up * _legsRange, _legs.position + Vector3.down * _legsRange, _legsRange, _jumpableMask).Length > 0;
         }
     }

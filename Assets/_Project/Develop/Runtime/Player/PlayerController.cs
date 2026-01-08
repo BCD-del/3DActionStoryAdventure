@@ -14,6 +14,7 @@ namespace Assets._Project.Develop.Runtime.Player
         [SerializeField] private Transform _legs;
         [SerializeField] private float _legsRange = 0.25f;
         [SerializeField] private LayerMask _jumpableMask;
+
         [SerializeField] private float _gravity;
 
         private IPlayerInput _input;
@@ -22,7 +23,7 @@ namespace Assets._Project.Develop.Runtime.Player
         private RigidbodyJumpHandler _jumpHandler;
         private GroundChecker _groundChecker;
         private GravityHandler _gravityHandler;
-        
+
         private void Start()
         {
             _input = new PCPlayerInput();
@@ -31,7 +32,7 @@ namespace Assets._Project.Develop.Runtime.Player
             _jumpHandler = new RigidbodyJumpHandler(_rigidbody, _jumpPower);
             _jumpHandler = new RigidbodyJumpHandler(_rigidbody, _gravity);
             _groundChecker = new GroundChecker(_legs, _legsRange, _jumpableMask);
-
+            _gravityHandler = new GravityHandler(_gravity, _rigidbody, _groundChecker);
             // сделать класс GravityHandler и в нем прописать логику применения гравитации к некому _rigidbody объекту
             // логика такая: в этом классе (игрока) в апдейте вызывается метод ApplyGravity у обработчика гравитавции
             // метод ApplyGravity проверяет: если персонаж стоит на земле, то гравитация равна -2 
@@ -43,7 +44,7 @@ namespace Assets._Project.Develop.Runtime.Player
             Vector3 inputDirection = _input.GetMovementDirection();
 
             _mover.Move(inputDirection);
-            _rotator.Rotate(inputDirection, Time.deltaTime); 
+            _rotator.Rotate(inputDirection, Time.deltaTime);
 
             if (_input.IsJumpKeyPressed() && _groundChecker.IsTouched())
             {
@@ -54,5 +55,5 @@ namespace Assets._Project.Develop.Runtime.Player
                 _gravityHandler.ApplyGravity();
             }
         }
-    }  
+    }
 }

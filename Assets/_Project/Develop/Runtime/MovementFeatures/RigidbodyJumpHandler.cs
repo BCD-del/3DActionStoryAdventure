@@ -16,6 +16,7 @@ namespace Assets._Project.Develop.Runtime.MovementFeatures
 
         public void Jump()
         {
+
             _rididbody.AddForce(Vector3.up * _jumpPower, ForceMode.Impulse);
         }
     }
