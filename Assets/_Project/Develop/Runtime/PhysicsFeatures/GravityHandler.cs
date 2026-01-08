@@ -17,18 +17,22 @@ namespace Assets._Project.Develop.Runtime.PhysicsFeatures
         public void ApplyGravity()
         {
             Debug.Log("Gravity");
-            if (_groundChecker.IsTouched() == false)
+            if (_groundChecker.IsTouched() == true)
             {
-                _gravity = 2 + 0.02F;
+                _gravity = 2;
                 _rigidbody.linearVelocity = Vector3.down * _gravity;
-                Debug.Log(_rigidbody.linearVelocity);
+                Debug.Log("Grounded");
             }
+
             else
             {
-                _gravity = 0;
-                _rigidbody.linearVelocity = Vector3.down * _gravity;
+                _gravity = -2;
+              //  _rigidbody.linearVelocity = Vector3.down * _gravity;
+                _rigidbody.linearVelocity = Vector3.up * _gravity;
+                Debug.Log(_rigidbody.linearVelocity);
             }
-            
+
+
         }
     }
 }

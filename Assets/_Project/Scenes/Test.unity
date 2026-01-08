@@ -544,7 +544,7 @@ Transform:
   m_GameObject: {fileID: 1040738415}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 1.9000001, z: -4}
+  m_LocalPosition: {x: 1, y: 15.44, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -787,7 +787,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4324098416587173276, guid: e8c3575deaa89a94a886f643dec79b46, type: 3}
       propertyPath: _jumpPower
-      value: 70
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324098416587173276, guid: e8c3575deaa89a94a886f643dec79b46, type: 3}
+      propertyPath: _legsRange
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4324098416587173276, guid: e8c3575deaa89a94a886f643dec79b46, type: 3}
       propertyPath: _jumpableMask.m_Bits
@@ -807,7 +811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5653753997747368838, guid: e8c3575deaa89a94a886f643dec79b46, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 14.54
       objectReference: {fileID: 0}
     - target: {fileID: 5653753997747368838, guid: e8c3575deaa89a94a886f643dec79b46, type: 3}
       propertyPath: m_LocalPosition.z
@@ -974,7 +978,7 @@ Transform:
   m_GameObject: {fileID: 2010047058}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 1.9000001, z: -4}
+  m_LocalPosition: {x: 1, y: 15.44, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
