@@ -1,3 +1,4 @@
+using Assets._Project.Develop.Runtime.Configs;
 using Assets._Project.Develop.Runtime.InputFeature;
 using Assets._Project.Develop.Runtime.MovementFeatures;
 using Assets._Project.Develop.Runtime.PhysicsFeatures;
@@ -8,13 +9,8 @@ namespace Assets._Project.Develop.Runtime.Player
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private Rigidbody _rigidbody;
-        [SerializeField] private float _movementSpeed = 5;
-        [SerializeField] private float _rotationSpeed = 90;
-        [SerializeField] private float _jumpPower = 10;
         [SerializeField] private Transform _legs;
-        [SerializeField] private float _legsRange = 0.25f;
-        [SerializeField] private LayerMask _jumpableMask;
-        [SerializeField] private float _gravity = 9.8f;
+        [SerializeField] private PlayerConfig _config;
 
         private IPlayerInput _input;
         private RigidbodyDirectionalMover _mover;
@@ -23,18 +19,16 @@ namespace Assets._Project.Develop.Runtime.Player
         private GroundChecker _groundChecker;
         private GravityHandler _gravityHandler;
 
+        public bool IsRunning => _rigidbody.linearVelocity.magnitude > 0;
+
         private void Start()
         {
             _input = new PCPlayerInput();
-            _mover = new RigidbodyDirectionalMover(_rigidbody, _movementSpeed);
-            _rotator = new RigidbodyDirectionalRotator(_rigidbody, _rotationSpeed);
-            _jumpHandler = new RigidbodyJumpHandler(_rigidbody, _jumpPower);
-            _groundChecker = new GroundChecker(_legs, _legsRange, _jumpableMask);
-            _gravityHandler = new GravityHandler(_gravity, _rigidbody, _groundChecker);
-            // сделать класс GravityHandler и в нем прописать логику применения гравитации к некому _rigidbody объекту
-            // логика такая: в этом классе (игрока) в апдейте вызывается метод ApplyGravity у обработчика гравитавции
-            // метод ApplyGravity проверяет: если персонаж стоит на земле, то гравитация равна -2 
-            // иначе гравитация постепенно уменьшается от -2 и применяется к _rigidbody.linearVelocity по направлению вниз
+            _mover = new RigidbodyDirectionalMover(_rigidbody, _config.MovementSpeed);
+            _rotator = new RigidbodyDirectionalRotator(_rigidbody, _config.RotationSpeed);
+            _jumpHandler = new RigidbodyJumpHandler(_rigidbody, _config.JumpPower);
+            _groundChecker = new GroundChecker(_legs, _config.LegsRange, _config.JumpableMask);
+            _gravityHandler = new GravityHandler(_config.Gravity, _rigidbody, _groundChecker);
         }
 
         private void Update()
@@ -42,16 +36,14 @@ namespace Assets._Project.Develop.Runtime.Player
             Vector3 inputDirection = _input.GetMovementDirection();
 
             _mover.Move(inputDirection);
-
-            _gravityHandler.ApplyGravity();
             _rotator.Rotate(inputDirection, Time.deltaTime);
-           // _gravityHandler.ApplyGravity();
+
+            _gravityHandler.ApplyGravity(Time.deltaTime);
 
             if (_input.IsJumpKeyPressed() && _groundChecker.IsTouched())
             {
                 _jumpHandler.Jump();
-            }
-         
+            }      
         }
     }
 }

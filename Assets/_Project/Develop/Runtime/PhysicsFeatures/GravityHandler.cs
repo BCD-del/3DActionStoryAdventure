@@ -5,8 +5,8 @@ namespace Assets._Project.Develop.Runtime.PhysicsFeatures
     public class GravityHandler
     {
         private Rigidbody _rigidbody;
-        private float _gravity;
         private GroundChecker _groundChecker;
+        private float _gravity;
 
         public GravityHandler(float gravity, Rigidbody rigidbody, GroundChecker groundChecker)
         {
@@ -14,25 +14,19 @@ namespace Assets._Project.Develop.Runtime.PhysicsFeatures
             _rigidbody = rigidbody;
             _groundChecker = groundChecker;
         }
-        public void ApplyGravity()
-        {
-            Debug.Log("Gravity");
-            if (_groundChecker.IsTouched() == true)
-            {
-                _gravity = 2;
-                _rigidbody.linearVelocity = Vector3.down * _gravity;
-                Debug.Log("Grounded");
-            }
 
+        public void ApplyGravity(float deltaTime )
+        {
+            if (_groundChecker.IsTouched() == false)
+            {
+                _rigidbody.linearVelocity += Vector3.down * _gravity * _gravity * deltaTime;
+            }
             else
             {
-                _gravity = -2;
-              //  _rigidbody.linearVelocity = Vector3.down * _gravity;
-                _rigidbody.linearVelocity = Vector3.up * _gravity;
-                Debug.Log(_rigidbody.linearVelocity);
+                Vector3 velocity = _rigidbody.linearVelocity;
+                velocity.y = 0;
+                _rigidbody.linearVelocity = velocity;
             }
-
-
         }
     }
 }
