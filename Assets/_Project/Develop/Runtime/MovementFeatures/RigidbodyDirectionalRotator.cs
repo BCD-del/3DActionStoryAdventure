@@ -15,6 +15,9 @@ namespace Assets._Project.Develop.Runtime.MovementFeatures
 
         public void Rotate(Vector3 direction, float deltaTime)
         {
+            if (direction == Vector3.zero)
+                return;
+
             Quaternion LookRotation = Quaternion.LookRotation(direction);
             float step = _rotationSpeed * deltaTime;
             Quaternion rotation = Quaternion.RotateTowards(_rigidbody.rotation, LookRotation, step);
