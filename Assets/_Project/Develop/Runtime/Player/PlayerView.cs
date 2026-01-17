@@ -9,7 +9,9 @@ namespace Assets._Project.Develop.Runtime.Player
 
         private void Update()
         {
-            
+            _animator.SetBool("IsRunning", _player.IsRunning);
         }
     }
 }
+
+// Rig -> Humanoid and Create Avatar from this model (для первого раза, для новых анимаций from another avatar)

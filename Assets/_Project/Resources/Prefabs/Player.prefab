@@ -423,8 +423,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9177001772413577460}
   - component: {fileID: 6141664446213872150}
-  - component: {fileID: 4311276379816916032}
   - component: {fileID: 8227225315308598380}
+  - component: {fileID: 440761194202510948}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -446,6 +446,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8182492540270097749}
+  - {fileID: 746525118044189466}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &6141664446213872150
@@ -475,21 +476,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &4311276379816916032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2625957565659247341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79cb56e4e05a53d4dbfec1c4fb119db9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  _rigidbody: {fileID: 6141664446213872150}
-  _legs: {fileID: 0}
-  _config: {fileID: 11400000, guid: 700fe9019fd66f34eac1730083ee9543, type: 2}
 --- !u!136 &8227225315308598380
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -509,10 +495,30 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.4
+  m_Height: 1.8
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &440761194202510948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2625957565659247341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52d5e0b10309f34aaeacd7c188eb0ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: "Assembly-CSharp::Assets._Project.Develop.Runtime.\u0420\u0435\u0444\u0430\u043A\u0442\u043E\u0440\u0438\u043D\u0433.PlayerController"
+  _motor: {fileID: 0}
+  _look: {fileID: 0}
+  _jump: {fileID: 0}
+  _rigidbody: {fileID: 6141664446213872150}
+  _legsPoint: {fileID: 9177001772413577460}
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 129
 --- !u!1 &2847923297892377663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,6 +1374,37 @@ Transform:
   m_Children:
   - {fileID: 2597620239977903441}
   m_Father: {fileID: 7113932296990640119}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5154725864483011358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 746525118044189466}
+  m_Layer: 6
+  m_Name: Legs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &746525118044189466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5154725864483011358}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9177001772413577460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5296076502495492185
 GameObject:

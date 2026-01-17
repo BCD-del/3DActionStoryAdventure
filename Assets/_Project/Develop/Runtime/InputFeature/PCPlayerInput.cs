@@ -2,20 +2,12 @@ using UnityEngine;
 
 namespace Assets._Project.Develop.Runtime.InputFeature
 {
-    public class PCPlayerInput : IPlayerInput
+    public class PCPlayerInput : IPCPlayerInput
     {
-        public Vector3 GetMovementDirection()
-        {
-            float horizontalInput = Input.GetAxisRaw("Horizontal");
-            float verticalInput = Input.GetAxisRaw("Vertical");
-
-
-            return new Vector3(horizontalInput, 0, verticalInput);
-        }
-
-        public bool IsJumpKeyPressed()
-        {
-            return Input.GetKeyDown(KeyCode.Space);
-        }
+        public float Horizontal => Input.GetAxisRaw("Horizontal");
+        public float Vertical => Input.GetAxisRaw("Vertical");
+        public bool Jump => Input.GetButtonDown("Jump");
+        public float MouseX => Input.GetAxis("Mouse X");
+        public float MouseY => Input.GetAxis("Mouse Y");
     }
 }
