@@ -1,14 +1,23 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-public class PlayerMotor : MonoBehaviour
+public class PlayerMover : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed = 10f;
-    [SerializeField] private float _acceleration = 15f;
-    [SerializeField] private float _deceleration = 10f;
-    [SerializeField] private Rigidbody _rigidbody;
+    private float _moveSpeed = 5;
+    private float _acceleration = 10;
+    private float _deceleration = 15;
+   [SerializeField] private Rigidbody _rigidbody;
 
     private Vector3 _moveInput;
+
+    public PlayerMover(float moveSpeed, float acceleration, float deceleration, Rigidbody rigidbody, Vector3 moveInput)
+    {
+        _moveSpeed = moveSpeed;
+        _acceleration = acceleration;
+        _deceleration = deceleration;
+        _rigidbody = rigidbody;
+        _moveInput = moveInput;
+    }
 
     public void SetMoveInput(Vector3 moveInput)
     {
@@ -18,7 +27,9 @@ public class PlayerMotor : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 desiredVelocityXZ = _moveInput * _moveSpeed;
+
         Vector3 currentVelocityXZ = new Vector3(_rigidbody.linearVelocity.x, 0f, _rigidbody.linearVelocity.z);
+
 
         if (_moveInput.magnitude > 0.1f)
         {

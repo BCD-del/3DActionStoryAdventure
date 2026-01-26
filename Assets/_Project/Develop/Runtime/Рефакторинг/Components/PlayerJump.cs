@@ -1,17 +1,27 @@
-﻿using UnityEngine;
+﻿using System.Diagnostics;
+using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-public class PlayerJump : MonoBehaviour
+
+public class PlayerJump
 {
-    [SerializeField] private float _jumpForce = 7f;
-    [SerializeField] private Transform _legs;
-    [SerializeField] private LayerMask _groundMask;
-    [SerializeField] private Rigidbody _rigidbody;
+  float _jumpForce = 0.1f;
+    private Transform _legs;
+    private LayerMask _groundMask;
+    private Rigidbody _rigidbody;
+
+    public PlayerJump(float jumpForce, Transform legs, LayerMask groundMask, Rigidbody rigidbody)
+    {
+        _jumpForce = jumpForce;
+        _legs = legs;
+        _groundMask = groundMask;
+        _rigidbody = rigidbody;
+    }
 
     public void TryJump(bool JumpKeyPressed)
     {
         if (JumpKeyPressed && OnGround())
             _rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+        Debug.Log(_jumpForce);
     }
 
     private bool OnGround()
