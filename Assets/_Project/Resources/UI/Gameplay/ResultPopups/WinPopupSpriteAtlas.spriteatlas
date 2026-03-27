@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WinPopupSpriteAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 1
+      enableAlphaDilation: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: e3ba9dc114f154439a3f8b0365070df3, type: 3}
+    - {fileID: 2800000, guid: f31df80d25b0e4df6b85c055eed1f218, type: 3}
+    - {fileID: 2800000, guid: 395d838cf14e8485da4e9da25716d704, type: 3}
+    - {fileID: 2800000, guid: 0fc80593f303f48349789748cd156104, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - e3ba9dc114f154439a3f8b0365070df3: 21300000
+    - 0fc80593f303f48349789748cd156104: 21300000
+    - 395d838cf14e8485da4e9da25716d704: 21300000
+    - f31df80d25b0e4df6b85c055eed1f218: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: e3ba9dc114f154439a3f8b0365070df3, type: 3}
+  - {fileID: 21300000, guid: 0fc80593f303f48349789748cd156104, type: 3}
+  - {fileID: 21300000, guid: 395d838cf14e8485da4e9da25716d704, type: 3}
+  - {fileID: 21300000, guid: f31df80d25b0e4df6b85c055eed1f218, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Image_Glow_Oval_01
+  - Icon_Star_Result_n
+  - Icon_Star_Result_d
+  - Title_Ribbon_03_Purple
+  m_RenderDataMap: {}
+  m_Tag: WinPopupSpriteAtlas
+  m_IsVariant: 0

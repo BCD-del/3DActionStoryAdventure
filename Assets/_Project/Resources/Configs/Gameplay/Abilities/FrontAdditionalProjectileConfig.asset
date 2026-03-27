@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad5f40190770eec4c9550be0da68fd2e, type: 3}
+  m_Name: FrontAdditionalProjectileConfig
+  m_EditorClassIdentifier: 
+  <ID>k__BackingField: FrontAdditionalProjectileConfig
+  <Name>k__BackingField: Front Projectiles+
+  <Description>k__BackingField: Add new projectile per shot
+  <Icon>k__BackingField: {fileID: 21300000, guid: 37184cc9400964b798c12a6b62503389, type: 3}
+  _additionalArrowsByLevel:
+  - <DirectionShotConfigs>k__BackingField:
+    - <Angel>k__BackingField: 0
+      <NumberOfProjectiles>k__BackingField: 1
+  - <DirectionShotConfigs>k__BackingField:
+    - <Angel>k__BackingField: 0
+      <NumberOfProjectiles>k__BackingField: 1
+  - <DirectionShotConfigs>k__BackingField:
+    - <Angel>k__BackingField: 0
+      <NumberOfProjectiles>k__BackingField: 1

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 335b6322e1154724da8c8bf377517eae, type: 3}
+  m_Name: IncreaseDamage1
+  m_EditorClassIdentifier: 
+  <ID>k__BackingField: IncreaseDamage1
+  <Name>k__BackingField: Damage+
+  <Description>k__BackingField: +100
+  <Icon>k__BackingField: {fileID: 21300000, guid: 8c5f1c6ad551e45a8b0f4bcd6c5184e5, type: 3}
+  <StatType>k__BackingField: 3
+  _operation: 1
+  _value: 100

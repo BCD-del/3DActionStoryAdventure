@@ -1,0 +1,20 @@
+{
+  "WalletData": {
+    "Gold": 55,
+    "Diamond": 4,
+    "Wins": 2,
+    "Loses": 0
+  },
+  "StatsUpgradeLevel": {
+    "MoveSpeed": 3,
+    "MaxHealth": 2,
+    "Damage": 4,
+    "AttacksPerSecond": 2
+  },
+  "Wins": 1,
+  "Losses": 0,
+  "CompletedLevels": [
+    1,
+    2
+  ]
+}
