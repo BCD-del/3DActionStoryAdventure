@@ -3,8 +3,10 @@ using Assets._Project.Develop.Runtime.Configs.Gameplay.Abilities;
 using Assets._Project.Develop.Runtime.Configs.Gameplay.Entities;
 using Assets._Project.Develop.Runtime.Configs.Gameplay.Levels;
 using Assets._Project.Develop.Runtime.Configs.Gameplay.Loot;
+using Assets._Project.Develop.Runtime.Configs.MainHero;
 using Assets._Project.Develop.Runtime.Configs.Meta.Stats;
 using Assets._Project.Develop.Runtime.Configs.Meta.Wallet;
+using Assets._Project.Develop.Runtime.Gameplay.Features.Npc;
 using Assets._Project.Develop.Runtime.Utilites.AssetsManagment;
 using System;
 using System.Collections;
@@ -29,11 +31,15 @@ namespace Assets._Project.Develop.Runtime.Utilites.ConfigsManagment
 
             { typeof(LevelsListConfig), "Configs/Gameplay/Levels/LevelsListConfig" },
 
-            { typeof(HeroConfig), "Configs/Entities/Characters/HeroConfig" },
+          //  { typeof(HeroConfig), "Configs/Entities/Characters/HeroConfig" },
 
             { typeof(AbilitiesConfigsContainer), "Configs/Gameplay/Abilities/AbilitiesConfigsContainer" },
 
             { typeof(ExperienceForUpgradeLevelConfig), "Configs/Gameplay/ExperienceForUpgradeLevelConfig" },
+
+            { typeof(MainHeroConfig), "Configs/MainHero/MainHeroConfig" },
+
+            { typeof(NPCConfig),"Configs/Gameplay/Npc/NPCConfig" },
         };
 
         public ResourcesConfigsLoader(ResourcesAssetsLoader resources)

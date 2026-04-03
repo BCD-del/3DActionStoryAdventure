@@ -20,6 +20,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
+using Assets._Project.Develop.Runtime.Gameplay.Features.NPC;
 
 namespace Assets._Project.Develop.Runtime.Infrastructure.EntryPoint
 {

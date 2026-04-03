@@ -1,29 +1,30 @@
-﻿using Assets._Project.Develop.Infrastructure;
-using Assets._Project.Develop.Infrastructure.DI;
+﻿using Assets._Project.Develop.Infrastructure.DI;
+using Assets._Project.Develop.Infrastructure;
 using Assets._Project.Develop.Runtime.Gameplay.EntitiesCore;
-using Assets._Project.Develop.Runtime.Gameplay.Features.AI;
-using Assets._Project.Develop.Runtime.Gameplay.Features.MainHero;
-using Assets._Project.Develop.Runtime.Gameplay.States;
-using Assets._Project.Develop.Runtime.UI.Gameplay;
 using Assets._Project.Develop.Runtime.Utilites.SceneManagement;
 using System;
 using System.Collections;
 using UnityEngine;
-
+using Assets._Project.Develop.Runtime.Gameplay.Features.AI;
+using Assets._Project.Develop.Runtime.Gameplay.Features.MainHero;
+using Assets._Project.Develop.Runtime.Utilites.ConfigsManagment;
+using Assets._Project.Develop.Runtime.Utilites.AssetsManagment;
+using Assets._Project.Develop.Runtime.Configs.MainHero;
+using Assets._Project.Develop.Runtime.Gameplay.Features.Npc;
+using Assets._Project.Develop.Runtime.Gameplay.Features.NPC;
 
 namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 {
     public class GameplayBootstrap : SceneBootstrap
     {
         private DIContainer _container;
-
         private GameplayInputArgs _inputArgs;
 
-        private GameplayStatesContext _gameplayStatesContext;
-
-        private GameplayScreenPresenter _screenPresenter;
-
         private EntitiesLifeContext _entitiesLifeContext;
+
+        private MainHeroHolderService _mainHeroHolderService;
+
+        private NPCHolderService _npcHolderService;
 
         private AIBrainsContext _brainsContext;
 
@@ -41,41 +42,38 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 
         public override IEnumerator Initialize()
         {
-            _screenPresenter = _container.Resolve<GameplayScreenPresenter>();
+            Debug.Log($"Вы попали на уровень {_inputArgs.LevelNumber}");
+
+            Debug.Log("Инициализация геймплейной сцены");
 
             _entitiesLifeContext = _container.Resolve<EntitiesLifeContext>();
-
             _brainsContext = _container.Resolve<AIBrainsContext>();
+            _mainHeroHolderService = _container.Resolve<MainHeroHolderService>();
+            _npcHolderService = _container.Resolve<NPCHolderService>();
 
-            _gameplayStatesContext = _container.Resolve<GameplayStatesContext>();
+            ConfigsProviderService configsProviderService = _container.Resolve<ConfigsProviderService>();
+            MainHeroConfig config = configsProviderService.GetConfig<MainHeroConfig>();
+            GameObject hero = _mainHeroHolderService.CreateHero(config);
 
-            _container.Resolve<MainHeroFactory>().Create(Vector3.zero);
+            hero.transform.position = Vector3.up * 10;
 
-            yield break;
+            NPCConfig npcconfig = configsProviderService.GetConfig<NPCConfig>();
+            GameObject npc = _npcHolderService.CreateNPC(npcconfig);
+
+            npc.transform.position = Vector3.up * 10;
+
+                yield break;
         }
 
         public override void Run()
         {
-            _gameplayStatesContext.Run();
+            Debug.Log("Старт геймплейной сцены");
         }
 
         private void Update()
         {
             _brainsContext?.Update(Time.deltaTime);
-
             _entitiesLifeContext?.Update(Time.deltaTime);
-
-            _gameplayStatesContext?.Update(Time.deltaTime);
-
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                _container.Resolve<MainHeroHolderService>().MainHero.Experience.Value += 50;
-            }
-        }
-
-        private void LateUpdate()
-        {
-            _screenPresenter?.LateUpdate();
         }
     }
 }
