@@ -23,6 +23,7 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.MainHero
         public MainHeroHolderService(EntitiesLifeContext entitiesLifeContext)
         {
             _entitiesLifeContext = entitiesLifeContext;
+      
         }
 
         public IReadOnlyEvent<Entity> HeroRegistred => _heroRegistred;
@@ -48,11 +49,6 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.MainHero
             }
         }
        /* private DIContainer _container;
-
-        public MainHeroHolderService(DIContainer container)
-        {
-            _container = container;
-        }
 
         public GameObject CreateHero(MainHeroConfig config)
         {

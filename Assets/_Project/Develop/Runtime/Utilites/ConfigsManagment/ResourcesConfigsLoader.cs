@@ -6,7 +6,7 @@ using Assets._Project.Develop.Runtime.Configs.Gameplay.Loot;
 using Assets._Project.Develop.Runtime.Configs.MainHero;
 using Assets._Project.Develop.Runtime.Configs.Meta.Stats;
 using Assets._Project.Develop.Runtime.Configs.Meta.Wallet;
-using Assets._Project.Develop.Runtime.Gameplay.Features.Npc;
+using Assets._Project.Develop.NPCConfigsGameplay.NPCConfigs;
 using Assets._Project.Develop.Runtime.Utilites.AssetsManagment;
 using System;
 using System.Collections;
@@ -39,7 +39,7 @@ namespace Assets._Project.Develop.Runtime.Utilites.ConfigsManagment
 
             { typeof(MainHeroConfig), "Configs/MainHero/MainHeroConfig" },
 
-            { typeof(NPCConfig),"Configs/Gameplay/Npc/NPCConfig" },
+            { typeof(NPCConfig),"Configs/Gameplay/NPCConfigs/NPCConfig" },
         };
 
         public ResourcesConfigsLoader(ResourcesAssetsLoader resources)

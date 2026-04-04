@@ -10,7 +10,7 @@ using Assets._Project.Develop.Runtime.Gameplay.Features.MainHero;
 using Assets._Project.Develop.Runtime.Utilites.ConfigsManagment;
 using Assets._Project.Develop.Runtime.Utilites.AssetsManagment;
 using Assets._Project.Develop.Runtime.Configs.MainHero;
-using Assets._Project.Develop.Runtime.Gameplay.Features.Npc;
+using Assets._Project.Develop.NPCConfigsGameplay.NPCConfigs;
 using Assets._Project.Develop.Runtime.Gameplay.Features.NPC;
 
 namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
@@ -53,14 +53,14 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 
             ConfigsProviderService configsProviderService = _container.Resolve<ConfigsProviderService>();
             MainHeroConfig config = configsProviderService.GetConfig<MainHeroConfig>();
-            GameObject hero = _mainHeroHolderService.CreateHero(config);
+           // GameObject hero = _mainHeroHolderService.CreateHero(config);
 
-            hero.transform.position = Vector3.up * 10;
+           // hero.transform.position = Vector3.up * 10;
 
             NPCConfig npcconfig = configsProviderService.GetConfig<NPCConfig>();
             GameObject npc = _npcHolderService.CreateNPC(npcconfig);
 
-            npc.transform.position = Vector3.up * 10;
+            //npc.transform.position = Vector3.up * 10;
 
                 yield break;
         }

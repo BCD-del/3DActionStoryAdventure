@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets._Project.Develop.Runtime.Gameplay.Features.Npc
+namespace Assets._Project.Develop.NPCConfigsGameplay.NPCConfigs
 {
     [CreateAssetMenu(menuName = "Configs/Gameplay/Npc/New NPC Config", fileName = "NPCConfig")]
     public class NPCConfig : ScriptableObject
