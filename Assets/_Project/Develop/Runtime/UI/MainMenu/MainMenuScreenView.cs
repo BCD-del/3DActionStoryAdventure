@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MainMenuScreenView : MonoBehaviour, IView
 {
-    public event Action StartGameButtonClicked;
+    public event Action OpenLevelsMenuButton;
     public event Action UpgradesButtonClicked;
 
     [field: SerializeField] public IconTextListView WalletView { get; private set; }
@@ -27,7 +27,7 @@ public class MainMenuScreenView : MonoBehaviour, IView
 
     private void OnStartGameButtonClicked()
     {
-        StartGameButtonClicked?.Invoke();
+        OpenLevelsMenuButton?.Invoke();
     }
 
     private void OnUpgradesButtonClicked()

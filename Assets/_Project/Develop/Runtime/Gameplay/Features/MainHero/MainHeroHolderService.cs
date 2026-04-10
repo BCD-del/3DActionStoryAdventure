@@ -31,32 +31,22 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.MainHero
 
         public void Initialize()
         {
-            _entitiesLifeContext.Added += OnEntityAdded;
+            _entitiesLifeContext.Added += OnNewEntityAdded;
         }
 
         public void Dispose()
         {
-            _entitiesLifeContext.Added -= OnEntityAdded;
+            _entitiesLifeContext.Added -= OnNewEntityAdded;
         }
 
-        private void OnEntityAdded(Entity entity)
+        private void OnNewEntityAdded(Entity entity)
         {
             if (entity.HasComponent<IsMainHero>())
             {
-                _entitiesLifeContext.Added -= OnEntityAdded;
+                _entitiesLifeContext.Added -= OnNewEntityAdded;
                 _mainHero = entity;
                 _heroRegistred?.Invoke(_mainHero);
             }
         }
-       /* private DIContainer _container;
-
-        public GameObject CreateHero(MainHeroConfig config)
-        {
-            ResourcesAssetsLoader resourcesAssetsLoader = _container.Resolve<ResourcesAssetsLoader>();
-            GameObject mainHeroPrefab = resourcesAssetsLoader.Load<GameObject>(config.PrefabPath);
-            GameObject instance = GameObject.Instantiate(mainHeroPrefab);
-
-            return instance;
-        }*/
     }
 }

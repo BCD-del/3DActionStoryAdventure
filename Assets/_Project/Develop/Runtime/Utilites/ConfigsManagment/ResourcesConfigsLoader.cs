@@ -31,15 +31,13 @@ namespace Assets._Project.Develop.Runtime.Utilites.ConfigsManagment
 
             { typeof(LevelsListConfig), "Configs/Gameplay/Levels/LevelsListConfig" },
 
-          //  { typeof(HeroConfig), "Configs/Entities/Characters/HeroConfig" },
+            { typeof(HeroConfig), "Configs/Entities/Characters/HeroConfig" },
 
             { typeof(AbilitiesConfigsContainer), "Configs/Gameplay/Abilities/AbilitiesConfigsContainer" },
 
             { typeof(ExperienceForUpgradeLevelConfig), "Configs/Gameplay/ExperienceForUpgradeLevelConfig" },
 
-            { typeof(MainHeroConfig), "Configs/MainHero/MainHeroConfig" },
-
-            { typeof(NPCConfig),"Configs/Gameplay/NPCConfigs/NPCConfig" },
+            { typeof(MainHeroConfig), "Configs/MainHero/MainHeroConfig" }
         };
 
         public ResourcesConfigsLoader(ResourcesAssetsLoader resources)

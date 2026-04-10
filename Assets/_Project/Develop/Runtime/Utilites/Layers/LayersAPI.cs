@@ -14,6 +14,7 @@ namespace Assets._Project.Develop.Runtime.Utilites
 		public static readonly int LayerEnviroment = LayerMask.NameToLayer("Enviroment");
 		public static readonly int LayerLoot = LayerMask.NameToLayer("Loot");
 		public static readonly int LayerTextureRender = LayerMask.NameToLayer("TextureRender");
+		public static readonly int LayerGround = LayerMask.NameToLayer("Ground");
 
 		public static readonly int LayerMaskDefault = 1 << LayerDefault;
 		public static readonly int LayerMaskTransparentFX = 1 << LayerTransparentFX;
@@ -25,6 +26,7 @@ namespace Assets._Project.Develop.Runtime.Utilites
 		public static readonly int LayerMaskEnviroment = 1 << LayerEnviroment;
 		public static readonly int LayerMaskLoot = 1 << LayerLoot;
 		public static readonly int LayerMaskTextureRender = 1 << LayerTextureRender;
+		public static readonly int LayerMaskGround = 1 << LayerGround;
 
 	}
 }

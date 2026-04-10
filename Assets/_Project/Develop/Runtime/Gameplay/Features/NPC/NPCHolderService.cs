@@ -19,21 +19,10 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.NPC
             if (config == null)
             {
                 Debug.LogError("CreateNPC: config is null");
-                return null;
-            }
-            if (string.IsNullOrEmpty(config.PrefabPath))
-            {
-                Debug.LogError($"CreateNPC: PrefabPath is null or empty for config '{config.name}'");
-                return null;
             }
 
             ResourcesAssetsLoader resourcesAssetsLoader = _container.Resolve<ResourcesAssetsLoader>();
             GameObject NPCPrefab = resourcesAssetsLoader.Load<GameObject>(config.PrefabPath);
-
-          /*  {
-                Debug.LogError($"Failed to load NPC prefab at path: {config.PrefabPath}");
-                return null;
-            }*/
             GameObject instanse = Object.Instantiate(NPCPrefab);
             return instanse;
         }

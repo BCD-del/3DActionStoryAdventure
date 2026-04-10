@@ -1,5 +1,7 @@
-﻿using Assets._Project.Develop.Runtime.Configs.Gameplay;
+﻿using Assets._Project.Develop.Infrastructure.DI;
+using Assets._Project.Develop.Runtime.Configs.Gameplay;
 using Assets._Project.Develop.Runtime.Configs.Gameplay.Entities;
+using Assets._Project.Develop.Runtime.Configs.MainHero;
 using Assets._Project.Develop.Runtime.Gameplay.EntitiesCore;
 using Assets._Project.Develop.Runtime.Gameplay.Features.AbilitiesFeature;
 using Assets._Project.Develop.Runtime.Gameplay.Features.AI;
@@ -7,13 +9,14 @@ using Assets._Project.Develop.Runtime.Gameplay.Features.AI.States;
 using Assets._Project.Develop.Runtime.Gameplay.Features.LevelUPFeature;
 using Assets._Project.Develop.Runtime.Gameplay.Features.StatsFeature;
 using Assets._Project.Develop.Runtime.Gameplay.Features.TeamsFeature;
-using System.Collections.Generic;
-using System;
-using UnityEngine;
-using Assets._Project.Develop.Infrastructure.DI;
+using Assets._Project.Develop.Runtime.Meta.Features.StatsUpgrade;
+using Assets._Project.Develop.Runtime.Utilites.AssetsManagment;
 using Assets._Project.Develop.Runtime.Utilites.ConfigsManagment;
 using Assets._Project.Develop.Runtime.Utilites.Reactive;
-using Assets._Project.Develop.Runtime.Meta.Features.StatsUpgrade;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using static UnityEngine.Rendering.STP;
 
 namespace Assets._Project.Develop.Runtime.Gameplay.Features.MainHero
 {
@@ -65,6 +68,16 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.MainHero
             _entitiesLifeContext.Add(entity);
 
             return entity;
+        }
+
+
+        public GameObject CreateMainHero(MainHeroConfig config, Vector3 position)
+        {
+            ResourcesAssetsLoader resourcesAssetsLoader = _container.Resolve<ResourcesAssetsLoader>();
+            GameObject mainHeroPrefab = resourcesAssetsLoader.Load<GameObject>(config.PrefabPath);
+            GameObject instance = GameObject.Instantiate(mainHeroPrefab, position, Quaternion.identity);
+
+            return instance;
         }
 
 

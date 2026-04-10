@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d7e1b785b44c714288366ad8b0cd298, type: 3}
   m_Name: HeroConfig
   m_EditorClassIdentifier: 
-  <PrefabPath>k__BackingField: Entities/Characters/Hero
+  <PrefabPath>k__BackingField: Prefabs/MainHero
   <MoveSpeed>k__BackingField: 4
   <RotationSpeed>k__BackingField: 900
   <AttackProcessTime>k__BackingField: 1

@@ -8,10 +8,7 @@ using UnityEngine;
 using Assets._Project.Develop.Runtime.Gameplay.Features.AI;
 using Assets._Project.Develop.Runtime.Gameplay.Features.MainHero;
 using Assets._Project.Develop.Runtime.Utilites.ConfigsManagment;
-using Assets._Project.Develop.Runtime.Utilites.AssetsManagment;
 using Assets._Project.Develop.Runtime.Configs.MainHero;
-using Assets._Project.Develop.NPCConfigsGameplay.NPCConfigs;
-using Assets._Project.Develop.Runtime.Gameplay.Features.NPC;
 
 namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 {
@@ -22,9 +19,7 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 
         private EntitiesLifeContext _entitiesLifeContext;
 
-        private MainHeroHolderService _mainHeroHolderService;
-
-        private NPCHolderService _npcHolderService;
+        private GameObject _mainHero;
 
         private AIBrainsContext _brainsContext;
 
@@ -48,21 +43,15 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 
             _entitiesLifeContext = _container.Resolve<EntitiesLifeContext>();
             _brainsContext = _container.Resolve<AIBrainsContext>();
-            _mainHeroHolderService = _container.Resolve<MainHeroHolderService>();
-            _npcHolderService = _container.Resolve<NPCHolderService>();
 
             ConfigsProviderService configsProviderService = _container.Resolve<ConfigsProviderService>();
             MainHeroConfig config = configsProviderService.GetConfig<MainHeroConfig>();
-           // GameObject hero = _mainHeroHolderService.CreateHero(config);
+            MainHeroFactory mainHeroFactory = _container.Resolve<MainHeroFactory>();
 
-           // hero.transform.position = Vector3.up * 10;
+            GameObject hero = mainHeroFactory.CreateMainHero(config, Vector3.up * 10);
 
-            NPCConfig npcconfig = configsProviderService.GetConfig<NPCConfig>();
-            GameObject npc = _npcHolderService.CreateNPC(npcconfig);
 
-            //npc.transform.position = Vector3.up * 10;
-
-                yield break;
+            yield break;
         }
 
         public override void Run()
