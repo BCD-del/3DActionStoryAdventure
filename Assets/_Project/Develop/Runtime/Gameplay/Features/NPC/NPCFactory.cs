@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace Assets._Project.Develop.Runtime.Gameplay.Features.NPC
 {
-    public class NPCHolderService
+    public class NPCFactory
     {
         private DIContainer _container;
 
-        public NPCHolderService(DIContainer container)
+        public NPCFactory(DIContainer container)
         {
             _container = container;
         }

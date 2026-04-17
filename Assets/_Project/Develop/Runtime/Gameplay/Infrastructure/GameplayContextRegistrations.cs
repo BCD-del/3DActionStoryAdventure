@@ -94,9 +94,9 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
             return new GameStatsService(container.Resolve<PlayerDataProvider>());
         }
 
-        private static NPCHolderService CreateNPCHolderService(DIContainer container)
+        private static NPCFactory CreateNPCHolderService(DIContainer container)
         {
-            return new NPCHolderService(container);
+            return new NPCFactory(container);
         }
 
         private static LootPullingService CreateLootPullingService(DIContainer c)

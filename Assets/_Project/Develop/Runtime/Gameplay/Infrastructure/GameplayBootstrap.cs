@@ -9,6 +9,9 @@ using Assets._Project.Develop.Runtime.Gameplay.Features.AI;
 using Assets._Project.Develop.Runtime.Gameplay.Features.MainHero;
 using Assets._Project.Develop.Runtime.Utilites.ConfigsManagment;
 using Assets._Project.Develop.Runtime.Configs.MainHero;
+using Assets._Project.Develop.NPCConfigsGameplay.NPCConfigs;
+using Assets._Project.Develop.Runtime.Gameplay.Features.NPC;
+using Assets._Project.Develop.Runtime.Configs.Gameplay.Levels;
 
 namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 {
@@ -20,6 +23,8 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
         private EntitiesLifeContext _entitiesLifeContext;
 
         private GameObject _mainHero;
+
+        private GameObject _npc;
 
         private AIBrainsContext _brainsContext;
 
@@ -44,14 +49,26 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
             _entitiesLifeContext = _container.Resolve<EntitiesLifeContext>();
             _brainsContext = _container.Resolve<AIBrainsContext>();
 
+            CreateMainHero();
+            CreateNPC();
+            yield break;
+        }
+
+        private void CreateNPC()
+        {
+            ConfigsProviderService configsProviderService = _container.Resolve<ConfigsProviderService>();
+            NPCConfig config = configsProviderService.GetConfig<NPCConfig>();
+            GameObject npc = _container.Resolve<NPCFactory>().CreateNPC(config);
+            npc.transform.position = configsProviderService.GetConfig<LevelsListConfig>().GetBy(_inputArgs.LevelNumber).NPCSpawnPoint;
+        }
+
+        private void CreateMainHero()
+        {
             ConfigsProviderService configsProviderService = _container.Resolve<ConfigsProviderService>();
             MainHeroConfig config = configsProviderService.GetConfig<MainHeroConfig>();
             MainHeroFactory mainHeroFactory = _container.Resolve<MainHeroFactory>();
 
-            GameObject hero = mainHeroFactory.CreateMainHero(config, Vector3.up * 10);
-
-
-            yield break;
+            _mainHero = mainHeroFactory.CreateMainHero(config, configsProviderService.GetConfig<LevelsListConfig>().GetBy(_inputArgs.LevelNumber).MainHeroSpawnPoint);
         }
 
         public override void Run()

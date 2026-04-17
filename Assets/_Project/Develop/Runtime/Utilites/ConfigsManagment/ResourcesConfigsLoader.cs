@@ -37,7 +37,9 @@ namespace Assets._Project.Develop.Runtime.Utilites.ConfigsManagment
 
             { typeof(ExperienceForUpgradeLevelConfig), "Configs/Gameplay/ExperienceForUpgradeLevelConfig" },
 
-            { typeof(MainHeroConfig), "Configs/MainHero/MainHeroConfig" }
+            { typeof(MainHeroConfig), "Configs/MainHero/MainHeroConfig" },
+
+            { typeof(NPCConfig), "Configs/Entities/NPC/TestNPCConfig" },
         };
 
         public ResourcesConfigsLoader(ResourcesAssetsLoader resources)

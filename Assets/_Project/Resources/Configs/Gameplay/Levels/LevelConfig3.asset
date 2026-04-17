@@ -19,3 +19,5 @@ MonoBehaviour:
   <LevelNumber>k__BackingField: 3
   <LevelIcon>k__BackingField: {fileID: 21300032, guid: 7ab74e659e1f0a34d9cfec21c478fc12, type: 3}
   <ContactTriggerSpawnPointPosition>k__BackingField: {x: 0.6, y: -0.01999998, z: 10.940001}
+  <NPCSpawnPoint>k__BackingField: {x: 5, y: 0, z: 10}
+  <MainHeroSpawnPoint>k__BackingField: {x: -2, y: 10, z: -3}
