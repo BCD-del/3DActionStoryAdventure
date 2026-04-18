@@ -13,4 +13,6 @@ namespace Assets._Project.Develop.NPCConfigsGameplay.NPCConfigs
     {
         [field:SerializeField] public string PrefabPath { get; private set; }
     }
+
+    
 }

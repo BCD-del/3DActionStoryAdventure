@@ -12,6 +12,8 @@ using Assets._Project.Develop.Runtime.Configs.MainHero;
 using Assets._Project.Develop.NPCConfigsGameplay.NPCConfigs;
 using Assets._Project.Develop.Runtime.Gameplay.Features.NPC;
 using Assets._Project.Develop.Runtime.Configs.Gameplay.Levels;
+using Assets._Project.Develop.Runtime.Configs.Gameplay.Moveables;
+using Assets._Project.Develop.Runtime.Gameplay.Features.Moveables;
 
 namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 {
@@ -25,6 +27,8 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
         private GameObject _mainHero;
 
         private GameObject _npc;
+
+        
 
         private AIBrainsContext _brainsContext;
 
@@ -51,7 +55,16 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 
             CreateMainHero();
             CreateNPC();
+            CreateMoveable();
             yield break;
+        }
+
+        private void CreateMoveable()
+        {
+            ConfigsProviderService configsProviderService = _container.Resolve<ConfigsProviderService>();
+            MoveablesConfig config = configsProviderService.GetConfig<MoveablesConfig>();
+            GameObject moveable = _container.Resolve<MoveablesFactory>().CreateMoveable(config);
+            moveable.transform.position = configsProviderService.GetConfig<LevelsListConfig>().GetBy(_inputArgs.LevelNumber).MoveableSpawnPoint;
         }
 
         private void CreateNPC()

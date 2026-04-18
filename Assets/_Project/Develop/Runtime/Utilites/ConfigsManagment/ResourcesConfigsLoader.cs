@@ -12,6 +12,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets._Project.Develop.Runtime.Configs.Gameplay.Moveables;
 
 namespace Assets._Project.Develop.Runtime.Utilites.ConfigsManagment
 {
@@ -40,6 +41,8 @@ namespace Assets._Project.Develop.Runtime.Utilites.ConfigsManagment
             { typeof(MainHeroConfig), "Configs/MainHero/MainHeroConfig" },
 
             { typeof(NPCConfig), "Configs/Entities/NPC/TestNPCConfig" },
+
+            { typeof(MoveablesConfig), "Configs/Gameplay/Moveables/MoveablesConfig" },     
         };
 
         public ResourcesConfigsLoader(ResourcesAssetsLoader resources)

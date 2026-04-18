@@ -12,6 +12,7 @@ using Assets._Project.Develop.Runtime.Gameplay.Features.InputFeature;
 using Assets._Project.Develop.Runtime.Gameplay.Features.LevelUPFeature;
 using Assets._Project.Develop.Runtime.Gameplay.Features.LootFeature;
 using Assets._Project.Develop.Runtime.Gameplay.Features.MainHero;
+using Assets._Project.Develop.Runtime.Gameplay.Features.Moveables;
 using Assets._Project.Develop.Runtime.Gameplay.Features.NPC;
 using Assets._Project.Develop.Runtime.Gameplay.Features.PauseFeature;
 using Assets._Project.Develop.Runtime.Gameplay.Features.StageFeature;
@@ -76,6 +77,8 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 
             container.RegisterAsSingle(CreateNPCHolderService);
 
+            container.RegisterAsSingle(CreateMoveableHolderService);
+
             container.RegisterAsSingle(CreateEnemiesFactory);
             container.RegisterAsSingle(CreateStagesFactory);
 
@@ -97,6 +100,10 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
         private static NPCFactory CreateNPCHolderService(DIContainer container)
         {
             return new NPCFactory(container);
+        }
+        private static MoveablesFactory CreateMoveableHolderService(DIContainer container)
+        {
+            return new MoveablesFactory(container);
         }
 
         private static LootPullingService CreateLootPullingService(DIContainer c)

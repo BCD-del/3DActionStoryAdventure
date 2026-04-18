@@ -21,3 +21,4 @@ MonoBehaviour:
   <ContactTriggerSpawnPointPosition>k__BackingField: {x: 0.6, y: -0.01999998, z: 10.940001}
   <NPCSpawnPoint>k__BackingField: {x: 5, y: 0, z: 10}
   <MainHeroSpawnPoint>k__BackingField: {x: -2, y: 10, z: -3}
+  <MoveableSpawnPoint>k__BackingField: {x: -3, y: 2, z: 1}
