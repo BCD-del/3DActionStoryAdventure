@@ -41,12 +41,14 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.MainHero
 
         private void OnNewEntityAdded(Entity entity)
         {
+            Debug.Log("Im working");
             if (entity.HasComponent<IsMainHero>())
             {
                 _entitiesLifeContext.Added -= OnNewEntityAdded;
                 _mainHero = entity;
                 _heroRegistred?.Invoke(_mainHero);
-            }
+
+                Debug.Log("Hero registred");
         }
     }
 }

@@ -77,11 +77,20 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 
         private void CreateMainHero()
         {
+            _container.Resolve<MainHeroFactory>()
+                .Create2(_container.Resolve<ConfigsProviderService>()
+                .GetConfig<LevelsListConfig>()
+                .GetBy(_inputArgs.LevelNumber).MainHeroSpawnPoint);
+
+            /*
             ConfigsProviderService configsProviderService = _container.Resolve<ConfigsProviderService>();
             MainHeroConfig config = configsProviderService.GetConfig<MainHeroConfig>();
             MainHeroFactory mainHeroFactory = _container.Resolve<MainHeroFactory>();
 
-            _mainHero = mainHeroFactory.CreateMainHero(config, configsProviderService.GetConfig<LevelsListConfig>().GetBy(_inputArgs.LevelNumber).MainHeroSpawnPoint);
+            _mainHero = mainHeroFactory.CreateMainHero(config, configsProviderService
+                .GetConfig<LevelsListConfig>()
+                .GetBy(_inputArgs.LevelNumber).MainHeroSpawnPoint);
+            */
         }
 
         public override void Run()

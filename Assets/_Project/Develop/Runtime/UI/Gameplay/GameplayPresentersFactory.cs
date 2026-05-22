@@ -10,10 +10,12 @@ using Assets._Project.Develop.Runtime.Gameplay.Features.StageFeature;
 using Assets._Project.Develop.Runtime.UI.CommonViews;
 using Assets._Project.Develop.Runtime.UI.Core;
 using Assets._Project.Develop.Runtime.UI.Gameplay.HealthDisplay;
+using Assets._Project.Develop.Runtime.UI.Gameplay.HealthDisplay.New;
 using Assets._Project.Develop.Runtime.UI.Gameplay.ResultPopups;
 using Assets._Project.Develop.Runtime.UI.Gameplay.Stages;
 using Assets._Project.Develop.Runtime.Utilites.ConfigsManagment;
 using Assets._Project.Develop.Runtime.Utilites.CoroutinesManagment;
+using Assets._Project.Develop.Runtime.Utilites.Reactive;
 using Assets._Project.Develop.Runtime.Utilites.SceneManagement;
 using Assets.CourseGame.Develop.Gameplay.Features.AbilitiesFeature.View;
 using System;
@@ -70,8 +72,7 @@ namespace Assets._Project.Develop.Runtime.UI.Gameplay
             return new GameplayScreenPresenter(
                 view, 
                 _container.Resolve<GameplayPresentersFactory>(),
-                _container.Resolve<MainHeroHolderService>(),
-                _container.Resolve<ProjectPresentersFactory>()
+                _container.Resolve<MainHeroHolderService>()
                 );
         }
 
@@ -114,6 +115,11 @@ namespace Assets._Project.Develop.Runtime.UI.Gameplay
                 _container.Resolve<MainHeroHolderService>(),
                 view,
                 _container.Resolve<ConfigsProviderService>().GetConfig<ExperienceForUpgradeLevelConfig>());
+        }
+
+        public MainHeroHealthBarPresenter CreateHeroHealthBarPresenter(BarWithText healthBarView, ReactiveVariable<float> currentHealth, ReactiveVariable<float> maxHealth)
+        {
+            return new MainHeroHealthBarPresenter(healthBarView, currentHealth, maxHealth);
         }
     }
 }

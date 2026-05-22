@@ -40,7 +40,7 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.MainHero
             _statsUpgradeService = _container.Resolve<StatsUpgradeService>();
         }
 
-        public Entity Create(Vector3 position)
+      /*  public Entity Create(Vector3 position)
         {
             HeroConfig config = _configsProviderService.GetConfig<HeroConfig>();
 
@@ -64,6 +64,21 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.MainHero
 
             entity.AddCurrentTarget();
             _brainsFactory.CreateMainHeroBrain(entity, new NearestDamagableTargetSelector(entity));
+
+            _entitiesLifeContext.Add(entity);
+
+            return entity;
+        }*/
+
+        public Entity Create2(Vector3 position)
+        {
+            
+            MainHeroConfig config = _configsProviderService.GetConfig<MainHeroConfig>();
+
+            Entity entity = _entitiesFactory.CreateHero2(position, config);
+
+            entity
+                .AddIsMainHero();
 
             _entitiesLifeContext.Add(entity);
 
