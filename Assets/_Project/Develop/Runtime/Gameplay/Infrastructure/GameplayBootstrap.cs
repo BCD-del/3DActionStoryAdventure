@@ -14,6 +14,7 @@ using Assets._Project.Develop.Runtime.Gameplay.Features.NPC;
 using Assets._Project.Develop.Runtime.Configs.Gameplay.Levels;
 using Assets._Project.Develop.Runtime.Configs.Gameplay.Moveables;
 using Assets._Project.Develop.Runtime.Gameplay.Features.Moveables;
+using Random = UnityEngine.Random;
 
 namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 {
@@ -24,7 +25,7 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 
         private EntitiesLifeContext _entitiesLifeContext;
 
-        private GameObject _mainHero;
+        private Entity _mainHero;
 
         private GameObject _npc;
 
@@ -77,7 +78,7 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 
         private void CreateMainHero()
         {
-            _container.Resolve<MainHeroFactory>()
+            _mainHero = _container.Resolve<MainHeroFactory>()
                 .Create2(_container.Resolve<ConfigsProviderService>()
                 .GetConfig<LevelsListConfig>()
                 .GetBy(_inputArgs.LevelNumber).MainHeroSpawnPoint);
@@ -102,6 +103,11 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
         {
             _brainsContext?.Update(Time.deltaTime);
             _entitiesLifeContext?.Update(Time.deltaTime);
+
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                _mainHero.CurrentHealth.Value -= Random.Range(1, 10);
+            }
         }
     }
 }

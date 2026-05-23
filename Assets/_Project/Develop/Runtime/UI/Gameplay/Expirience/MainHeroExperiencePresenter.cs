@@ -32,7 +32,7 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.LevelUPFeature
 
         public void Initialize()
         {
-            _disposables.Add(_mainHeroHolderService.HeroRegistred.Subscribe(OnMainHeroRegistred));
+            // _disposables.Add(_mainHeroHolderService.HeroRegistred.Subscribe(OnMainHeroRegistred));
         }
 
         private void OnMainHeroRegistred(Entity entity)

@@ -1,6 +1,7 @@
 ﻿using Assets._Project.Develop.Runtime.Gameplay.EntitiesCore;
 using Assets._Project.Develop.Runtime.Gameplay.Features.MainHero;
 using Assets._Project.Develop.Runtime.UI.Core;
+using Assets._Project.Develop.Runtime.UI.Gameplay.HealthDisplay.New;
 using System;
 
 namespace Assets._Project.Develop.Runtime.UI.Gameplay
@@ -36,7 +37,7 @@ namespace Assets._Project.Develop.Runtime.UI.Gameplay
 
         private void OnHeroRegistred(Entity entity)
         {
-            HealthDisplay.New.MainHeroHealthBarPresenter mainHeroHealthPresenter = _gameplayPresentersFactory
+            MainHeroHealthBarPresenter mainHeroHealthPresenter = _gameplayPresentersFactory
                 .CreateHeroHealthBarPresenter(
                 _screenView.HealthBarView, 
                 entity.CurrentHealth, 

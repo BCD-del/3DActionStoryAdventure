@@ -40,14 +40,23 @@ namespace Assets._Project.Develop.Runtime.Gameplay.EntitiesCore
             _collidersRegistryService = container.Resolve<CollidersRegistryService>();
         }
 
-        public Entity CreateHero2(Vector3 position, MainHeroConfig config)
+        public Entity CreateMainHero(Vector3 position, MainHeroConfig config)
         {
             Entity entity = CreateEmpty();
 
             _monoEntitiesFactory.Create(entity, position, config.PrefabPath);
 
-            entity.AddMaxHealth(new ReactiveVariable<float>(100));
-            entity.AddCurrentHealth(new ReactiveVariable<float>(40));
+            entity
+               .AddMaxHealth(new ReactiveVariable<float>(config.MaxHealth))
+               .AddCurrentHealth(new ReactiveVariable<float>(config.MaxHealth))
+               .AddMoveSpeed(new ReactiveVariable<float>(config.MoveSpeed))
+               .AddSprintMoveSpeedMultiplier(new ReactiveVariable<float>(config.SprintMoveSpeedMultiplier))
+               ;
+
+            entity
+                .AddSystem(new CharacterControllerLocomotionSystem())
+                // .AddSystem(new ApplyDamageSystem())
+                ;
                
             return entity;
         }

@@ -16,14 +16,14 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.MainHero
     public class MainHeroHolderService : IInitializable, IDisposable
     {
         private readonly EntitiesLifeContext _entitiesLifeContext;
-        private ReactiveEvent<Entity> _heroRegistred = new();   
+        private ReactiveEvent<Entity> _heroRegistred = new();
 
         private Entity _mainHero;
 
         public MainHeroHolderService(EntitiesLifeContext entitiesLifeContext)
         {
             _entitiesLifeContext = entitiesLifeContext;
-      
+
         }
 
         public IReadOnlyEvent<Entity> HeroRegistred => _heroRegistred;
@@ -41,14 +41,15 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.MainHero
 
         private void OnNewEntityAdded(Entity entity)
         {
-            Debug.Log("Im working");
+            
             if (entity.HasComponent<IsMainHero>())
             {
                 _entitiesLifeContext.Added -= OnNewEntityAdded;
                 _mainHero = entity;
                 _heroRegistred?.Invoke(_mainHero);
 
-                Debug.Log("Hero registred");
+               
+            }
         }
     }
 }

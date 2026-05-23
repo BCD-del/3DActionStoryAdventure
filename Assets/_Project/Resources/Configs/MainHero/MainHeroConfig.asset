@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27f71013b81a7d94eb35ed62506f29c7, type: 3}
   m_Name: MainHeroConfig
   m_EditorClassIdentifier: Assembly-CSharp::Assets._Project.Develop.Runtime.Configs.MainHero.MainHeroConfig
-  <Name>k__BackingField: Hero
-  <PrefabPath>k__BackingField: Prefabs/MainHero
+  <PrefabPath>k__BackingField: Entities/MainHero/MainHero
+  <MaxHealth>k__BackingField: 100
+  <MoveSpeed>k__BackingField: 10
+  <SprintMoveSpeedMultiplier>k__BackingField: 5

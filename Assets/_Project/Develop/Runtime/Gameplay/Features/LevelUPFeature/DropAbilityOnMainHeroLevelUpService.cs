@@ -43,7 +43,7 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.LevelUPFeature
 
         public void Initialize()
         {
-            _heroRegistredDisposable = _mainHeroHolderService.HeroRegistred.Subscribe(OnMainHeroRegistred);
+           // _heroRegistredDisposable = _mainHeroHolderService.HeroRegistred.Subscribe(OnMainHeroRegistred);
         }
 
         public void Dispose()

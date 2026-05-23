@@ -75,7 +75,7 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.MainHero
             
             MainHeroConfig config = _configsProviderService.GetConfig<MainHeroConfig>();
 
-            Entity entity = _entitiesFactory.CreateHero2(position, config);
+            Entity entity = _entitiesFactory.CreateMainHero(position, config);
 
             entity
                 .AddIsMainHero();

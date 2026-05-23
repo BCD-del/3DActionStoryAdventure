@@ -15,6 +15,11 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.MovementFeature
         public ReactiveVariable<float> Value;
     }
 
+    public class SprintMoveSpeedMultiplier : IEntityComponent
+    {
+        public ReactiveVariable<float> Value;
+    }
+
     public class IsMoving : IEntityComponent
     {
         public ReactiveVariable<bool> Value;
