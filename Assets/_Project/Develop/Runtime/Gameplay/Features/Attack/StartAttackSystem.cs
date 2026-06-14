@@ -37,11 +37,11 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.Attack
             {
                 _inAttackProcess.Value = true;
                 _startAttackEvent.Invoke();
-                // Debug.Log("Start attack");
+                Debug.Log("Start attack");
             }
             else
             {
-                // Debug.Log("Can't start attack");
+                Debug.Log("Can't start attack");
             }
         }
     }

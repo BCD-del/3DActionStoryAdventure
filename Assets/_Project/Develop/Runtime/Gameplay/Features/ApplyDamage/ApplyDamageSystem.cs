@@ -50,7 +50,7 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.ApplyDamage
             _health.Value = MathF.Max(_health.Value - damage, 0);
             _damageEvent.Invoke(damage);
 
-            // Debug.Log($"{_entityName} получил урон, у него осталось {_health.Value} ед. здоровья");
+            Debug.Log($"{_entityName} получил урон, у него осталось {_health.Value} ед. здоровья");
         }
     }
 }

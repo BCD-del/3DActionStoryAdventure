@@ -7,6 +7,7 @@ using Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Mono;
 using Assets._Project.Develop.Runtime.Gameplay.Features.AbilitiesDroppingFeature;
 using Assets._Project.Develop.Runtime.Gameplay.Features.AbilitiesFeature;
 using Assets._Project.Develop.Runtime.Gameplay.Features.AI;
+using Assets._Project.Develop.Runtime.Gameplay.Features.CameraFeature;
 using Assets._Project.Develop.Runtime.Gameplay.Features.Enemies;
 using Assets._Project.Develop.Runtime.Gameplay.Features.InputFeature;
 using Assets._Project.Develop.Runtime.Gameplay.Features.LevelUPFeature;
@@ -79,6 +80,8 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 
             container.RegisterAsSingle(CreateMoveableHolderService);
 
+            container.RegisterAsSingle(CreateCameraFactory);
+
             container.RegisterAsSingle(CreateEnemiesFactory);
             container.RegisterAsSingle(CreateStagesFactory);
 
@@ -104,6 +107,11 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
         private static MoveablesFactory CreateMoveableHolderService(DIContainer container)
         {
             return new MoveablesFactory(container);
+        }
+
+        private static CameraFactory CreateCameraFactory (DIContainer container)
+        {
+            return new CameraFactory(container);
         }
 
         private static LootPullingService CreateLootPullingService(DIContainer c)

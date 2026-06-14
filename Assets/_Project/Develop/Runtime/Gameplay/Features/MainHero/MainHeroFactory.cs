@@ -86,6 +86,9 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.MainHero
         }
 
 
+
+
+
         public GameObject CreateMainHero(MainHeroConfig config, Vector3 position)
         {
             ResourcesAssetsLoader resourcesAssetsLoader = _container.Resolve<ResourcesAssetsLoader>();

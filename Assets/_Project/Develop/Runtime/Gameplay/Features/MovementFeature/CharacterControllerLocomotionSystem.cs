@@ -8,20 +8,20 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.MovementFeature
     public class CharacterControllerLocomotionSystem : IInitializableSystem, IUpdatableSystem
     {
         private CharacterController _controller;
+
         private ReactiveVariable<float> _moveSpeed;
+        private ReactiveVariable<Vector3> _moveDirection;
 
         public void OnInit(Entity entity)
         {
             _controller = entity.CharacterController;
             _moveSpeed = entity.MoveSpeed;
+            _moveDirection = entity.MoveDirection;
         }
 
         public void OnUpdate(float deltaTime)
         {
-            if (Input.GetKey(KeyCode.W))
-            {
-                _controller.Move(Vector3.forward * _moveSpeed.Value * Time.deltaTime);
-            }
+            _controller.Move(_moveDirection.Value * _moveSpeed.Value * Time.deltaTime);
         }
     }
 }

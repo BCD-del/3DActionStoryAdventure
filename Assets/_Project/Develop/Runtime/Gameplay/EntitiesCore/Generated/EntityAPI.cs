@@ -337,6 +337,30 @@ namespace Assets._Project.Develop.Runtime.Gameplay.EntitiesCore
 			return AddComponent(new Assets._Project.Develop.Runtime.Gameplay.Features.Sensors.IsTouchAnotherTeam() {Value = value}); 
 		}
 
+		public Assets._Project.Develop.Runtime.Gameplay.Features.MovementFeature.TrakedEntity TrakedEntityC => GetComponent<Assets._Project.Develop.Runtime.Gameplay.Features.MovementFeature.TrakedEntity>();
+
+		public Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveVariable<Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Entity> TrakedEntity => TrakedEntityC.Value;
+
+		public bool TryGetTrakedEntity(out Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveVariable<Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Entity> value)
+		{
+			bool result = TryGetComponent(out Assets._Project.Develop.Runtime.Gameplay.Features.MovementFeature.TrakedEntity component);
+			if (result)
+				value = component.Value;
+			else
+				value = default(Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveVariable<Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Entity>);
+			return result;
+		}
+
+		public Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Entity AddTrakedEntity()
+		{
+			return AddComponent(new Assets._Project.Develop.Runtime.Gameplay.Features.MovementFeature.TrakedEntity() { Value = new Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveVariable<Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Entity>() }); 
+		}
+
+		public Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Entity AddTrakedEntity(Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveVariable<Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Entity> value)
+		{
+			return AddComponent(new Assets._Project.Develop.Runtime.Gameplay.Features.MovementFeature.TrakedEntity() {Value = value}); 
+		}
+
 		public Assets._Project.Develop.Runtime.Gameplay.Features.MovementFeature.MoveDirection MoveDirectionC => GetComponent<Assets._Project.Develop.Runtime.Gameplay.Features.MovementFeature.MoveDirection>();
 
 		public Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveVariable<UnityEngine.Vector3> MoveDirection => MoveDirectionC.Value;
@@ -1019,6 +1043,54 @@ namespace Assets._Project.Develop.Runtime.Gameplay.EntitiesCore
 			return AddComponent(new Assets._Project.Develop.Runtime.Gameplay.Features.Attack.IsProjectile() ); 
 		}
 
+		public Assets._Project.Develop.Runtime.Gameplay.Features.Attack.AttackStrenght AttackStrenghtC => GetComponent<Assets._Project.Develop.Runtime.Gameplay.Features.Attack.AttackStrenght>();
+
+		public Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveVariable<System.Single> AttackStrenght => AttackStrenghtC.Value;
+
+		public bool TryGetAttackStrenght(out Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveVariable<System.Single> value)
+		{
+			bool result = TryGetComponent(out Assets._Project.Develop.Runtime.Gameplay.Features.Attack.AttackStrenght component);
+			if (result)
+				value = component.Value;
+			else
+				value = default(Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveVariable<System.Single>);
+			return result;
+		}
+
+		public Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Entity AddAttackStrenght()
+		{
+			return AddComponent(new Assets._Project.Develop.Runtime.Gameplay.Features.Attack.AttackStrenght() { Value = new Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveVariable<System.Single>() }); 
+		}
+
+		public Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Entity AddAttackStrenght(Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveVariable<System.Single> value)
+		{
+			return AddComponent(new Assets._Project.Develop.Runtime.Gameplay.Features.Attack.AttackStrenght() {Value = value}); 
+		}
+
+		public Assets._Project.Develop.Runtime.Gameplay.Features.Attack.CooldownTime CooldownTimeC => GetComponent<Assets._Project.Develop.Runtime.Gameplay.Features.Attack.CooldownTime>();
+
+		public Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveVariable<System.Single> CooldownTime => CooldownTimeC.Value;
+
+		public bool TryGetCooldownTime(out Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveVariable<System.Single> value)
+		{
+			bool result = TryGetComponent(out Assets._Project.Develop.Runtime.Gameplay.Features.Attack.CooldownTime component);
+			if (result)
+				value = component.Value;
+			else
+				value = default(Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveVariable<System.Single>);
+			return result;
+		}
+
+		public Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Entity AddCooldownTime()
+		{
+			return AddComponent(new Assets._Project.Develop.Runtime.Gameplay.Features.Attack.CooldownTime() { Value = new Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveVariable<System.Single>() }); 
+		}
+
+		public Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Entity AddCooldownTime(Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveVariable<System.Single> value)
+		{
+			return AddComponent(new Assets._Project.Develop.Runtime.Gameplay.Features.Attack.CooldownTime() {Value = value}); 
+		}
+
 		public Assets._Project.Develop.Runtime.Gameplay.Features.Attack.InstantShootingDirection InstantShootingDirectionC => GetComponent<Assets._Project.Develop.Runtime.Gameplay.Features.Attack.InstantShootingDirection>();
 
 		public Assets._Project.Develop.Runtime.Gameplay.Features.Attack.Shoot.InstantShootingDirectionArgs InstantShootingDirection => InstantShootingDirectionC.Value;
@@ -1525,6 +1597,30 @@ namespace Assets._Project.Develop.Runtime.Gameplay.EntitiesCore
 		public Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Entity AddInAttackCooldown(Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveVariable<System.Boolean> value)
 		{
 			return AddComponent(new Assets._Project.Develop.Runtime.Gameplay.Features.Attack.InAttackCooldown() {Value = value}); 
+		}
+
+		public Assets._Project.Develop.Runtime.Gameplay.Features.Attack.DamageApplyEvent DamageApplyEventC => GetComponent<Assets._Project.Develop.Runtime.Gameplay.Features.Attack.DamageApplyEvent>();
+
+		public Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveEvent DamageApplyEvent => DamageApplyEventC.Value;
+
+		public bool TryGetDamageApplyEvent(out Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveEvent value)
+		{
+			bool result = TryGetComponent(out Assets._Project.Develop.Runtime.Gameplay.Features.Attack.DamageApplyEvent component);
+			if (result)
+				value = component.Value;
+			else
+				value = default(Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveEvent);
+			return result;
+		}
+
+		public Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Entity AddDamageApplyEvent()
+		{
+			return AddComponent(new Assets._Project.Develop.Runtime.Gameplay.Features.Attack.DamageApplyEvent() { Value = new Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveEvent() }); 
+		}
+
+		public Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Entity AddDamageApplyEvent(Assets._Project.Develop.Runtime.Utilites.Reactive.ReactiveEvent value)
+		{
+			return AddComponent(new Assets._Project.Develop.Runtime.Gameplay.Features.Attack.DamageApplyEvent() {Value = value}); 
 		}
 
 		public Assets._Project.Develop.Runtime.Gameplay.Features.ApplyDamage.TakeDamageRequest TakeDamageRequestC => GetComponent<Assets._Project.Develop.Runtime.Gameplay.Features.ApplyDamage.TakeDamageRequest>();

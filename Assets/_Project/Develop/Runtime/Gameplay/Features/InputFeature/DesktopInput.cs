@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿
+
+using UnityEngine;
+
 
 namespace Assets._Project.Develop.Runtime.Gameplay.Features.InputFeature
 {
@@ -6,6 +9,7 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.InputFeature
     {
         private const string HorizontalAxisName = "Horizontal";
         private const string VerticalAxisName = "Vertical";
+       
 
         public bool IsEnabled { get; set; } = true;
 

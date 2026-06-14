@@ -44,8 +44,8 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.Attack
 
             if (currentTime >= _delay.Value)
             {
-                // Debug.Log("Delay before attack is end");
-                _attackDelayEndEvent.Invoke();
+                 Debug.Log("Delay before attack is end");
+                _attackDelayEndEvent.Invoke(); // в месте где ходим кого-то побить от атаки подписываемся на событие
                 _alreadyAttacked = true;
             }
         }

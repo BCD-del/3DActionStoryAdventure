@@ -15,6 +15,8 @@ using Assets._Project.Develop.Runtime.Configs.Gameplay.Levels;
 using Assets._Project.Develop.Runtime.Configs.Gameplay.Moveables;
 using Assets._Project.Develop.Runtime.Gameplay.Features.Moveables;
 using Random = UnityEngine.Random;
+using Assets._Project.Develop.Runtime.Configs.Gameplay.Camera;
+using Assets._Project.Develop.Runtime.Gameplay.Features.CameraFeature;
 
 namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 {
@@ -27,9 +29,12 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 
         private Entity _mainHero;
 
-        private GameObject _npc;
+        private Entity _enemy;
 
-        
+
+
+
+
 
         private AIBrainsContext _brainsContext;
 
@@ -57,6 +62,7 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
             CreateMainHero();
             CreateNPC();
             CreateMoveable();
+            CreateCamera();
             yield break;
         }
 
@@ -82,16 +88,14 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
                 .Create2(_container.Resolve<ConfigsProviderService>()
                 .GetConfig<LevelsListConfig>()
                 .GetBy(_inputArgs.LevelNumber).MainHeroSpawnPoint);
+        }
 
-            /*
+        private void CreateCamera()
+        {
             ConfigsProviderService configsProviderService = _container.Resolve<ConfigsProviderService>();
-            MainHeroConfig config = configsProviderService.GetConfig<MainHeroConfig>();
-            MainHeroFactory mainHeroFactory = _container.Resolve<MainHeroFactory>();
-
-            _mainHero = mainHeroFactory.CreateMainHero(config, configsProviderService
-                .GetConfig<LevelsListConfig>()
-                .GetBy(_inputArgs.LevelNumber).MainHeroSpawnPoint);
-            */
+            CameraConfig config = configsProviderService.GetConfig<CameraConfig>();
+            GameObject camera = _container.Resolve<CameraFactory>().CreateCamera(config);
+            camera.transform.position = configsProviderService.GetConfig<LevelsListConfig>().GetBy(_inputArgs.LevelNumber).CameraSpawnPoint;
         }
 
         public override void Run()

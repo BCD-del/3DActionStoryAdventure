@@ -13,6 +13,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets._Project.Develop.Runtime.Configs.Gameplay.Moveables;
+using Assets._Project.Develop.Runtime.Configs.Gameplay.Camera;
 
 namespace Assets._Project.Develop.Runtime.Utilites.ConfigsManagment
 {
@@ -42,7 +43,11 @@ namespace Assets._Project.Develop.Runtime.Utilites.ConfigsManagment
 
             { typeof(NPCConfig), "Configs/Entities/NPC/TestNPCConfig" },
 
-            { typeof(MoveablesConfig), "Configs/Gameplay/Moveables/MoveablesConfig" },     
+            { typeof(MoveablesConfig), "Configs/Gameplay/Moveables/MoveablesConfig" },
+
+              { typeof(CameraConfig), "Configs/Gameplay/Camera/CameraConfig" },
+
+              { typeof(CultistConfig), "Configs/Gameplay/Entities/CultistConfig" }
         };
 
         public ResourcesConfigsLoader(ResourcesAssetsLoader resources)

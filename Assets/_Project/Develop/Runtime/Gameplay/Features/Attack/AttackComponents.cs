@@ -10,6 +10,16 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.Attack
     {
         
     }
+   
+    public class AttackStrenght : IEntityComponent
+    {
+        public ReactiveVariable<float> Value;
+    }
+
+    public class CooldownTime : IEntityComponent 
+    {
+        public ReactiveVariable<float> Value;
+    }
 
     public class InstantShootingDirection : IEntityComponent
     {
@@ -121,5 +131,10 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.Attack
     public class InAttackCooldown : IEntityComponent
     {
         public ReactiveVariable<bool> Value;
+    }
+
+    public class DamageApplyEvent: IEntityComponent
+    {
+        public ReactiveEvent Value;
     }
 }

@@ -5,10 +5,16 @@ using UnityEngine;
 
 namespace Assets._Project.Develop.Runtime.Gameplay.Features.MovementFeature
 {
+    public class TrakedEntity : IEntityComponent
+    {
+        public ReactiveVariable<Entity> Value;
+    }
+
     public class MoveDirection : IEntityComponent
     {
         public ReactiveVariable<Vector3> Value;
     }
+
 
     public class MoveSpeed : IEntityComponent
     {

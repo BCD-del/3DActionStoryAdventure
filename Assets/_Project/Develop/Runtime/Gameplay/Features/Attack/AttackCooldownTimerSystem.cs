@@ -36,7 +36,7 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.Attack
             if (CooldownIsOver())
             {
                 _inAttackCooldown.Value = false;
-                // Debug.Log("Attack cooldown is over");
+                Debug.Log("Attack cooldown is over");
             }
         }
 
@@ -47,7 +47,7 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.Attack
 
         private void OnEndAttack()
         {
-            // Debug.Log("Attack cooldown began");
+             Debug.Log("Attack cooldown began");
             _currentTime.Value = _initialTime.Value;
             _inAttackCooldown.Value = true;
         }

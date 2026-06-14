@@ -43,6 +43,8 @@ GameObject:
   - component: {fileID: 8311982929283640021}
   - component: {fileID: 1331749616701390183}
   - component: {fileID: 5946240587699346312}
+  - component: {fileID: 3607541724155746024}
+  - component: {fileID: 5809933688374884730}
   m_Layer: 0
   m_Name: BaseEntity
   m_TagString: Untagged
@@ -90,6 +92,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ca2dd0aa1637e48abea4b738e80510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3607541724155746024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4802234315569697755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67724dfb90076e747b00b0871cf52777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Assets._Project.Develop.Runtime.Gameplay.Features.Sensors.BodyColliderRegistrator
+  _body: {fileID: 0}
+--- !u!114 &5809933688374884730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4802234315569697755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 929fd7256631f984c98b9a454a079804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Assets._Project.Develop.Runtime.Gameplay.Common.CharacterControllerEntityRegistrator
 --- !u!1 &9038606189418674523
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,8 +17,10 @@ namespace Assets._Project.Develop.Runtime.Configs.Gameplay.Levels
         [field: SerializeField] public Vector3 MainHeroSpawnPoint { get; private set; }
         [field: SerializeField] public Vector3 MoveableSpawnPoint { get; private set; }
 
-        public IReadOnlyList<StageConfig> StageConfigs => _stageConfigs;
+        [field: SerializeField] public Vector3 CameraSpawnPoint { get; private set; }
 
+
+        public IReadOnlyList<StageConfig> StageConfigs => _stageConfigs;
 
     }
 }
