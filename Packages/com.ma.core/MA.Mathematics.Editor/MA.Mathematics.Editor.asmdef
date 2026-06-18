@@ -1,0 +1,18 @@
+{
+    "name": "MA.Mathematics.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:5d93a63b96024c708027c78fbc4f153e"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

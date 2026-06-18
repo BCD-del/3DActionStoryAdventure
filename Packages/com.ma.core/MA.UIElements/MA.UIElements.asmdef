@@ -1,0 +1,14 @@
+{
+    "name": "MA.UIElements",
+    "rootNamespace": "",
+    "references": ["GUID:776ab4a02811c314d9a1bf27227226aa","GUID:e1caf2008c0070b4cb979ca0757745eb"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,27 @@
+{
+    "name": "MA.Core.Editor",
+    "rootNamespace": "MA.Core.Editor",
+    "references": [
+        "GUID:776ab4a02811c314d9a1bf27227226aa",
+        "GUID:5d93a63b96024c708027c78fbc4f153e",
+        "GUID:2881d1a61c219f4459cc6e468ea32c42",
+        "GUID:e0cd26848372d4e5c891c569017e11f1",
+        "GUID:d8b63aba1907145bea998dd612889d6b",
+        "GUID:3eae0364be2026648bf74846acb8a731",
+        "GUID:df380645f10b7bc4b97d4f5eb6303d95",
+        "GUID:343deaaf83e0cee4ca978e7df0b80d21",
+        "GUID:2bafac87e7f4b9b418d9448d219b01ab",
+        "GUID:e1caf2008c0070b4cb979ca0757745eb"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": true,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

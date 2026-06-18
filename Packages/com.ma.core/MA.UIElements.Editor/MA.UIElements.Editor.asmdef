@@ -1,0 +1,24 @@
+{
+    "name": "MA.UIElements.Editor",
+    "rootNamespace": "MA.UIElements.Editor",
+    "references": [
+        "GUID:776ab4a02811c314d9a1bf27227226aa",
+        "GUID:e1caf2008c0070b4cb979ca0757745eb",
+        "GUID:798fa1ab746965d4abad920bd128dc04",
+        "GUID:2881d1a61c219f4459cc6e468ea32c42",
+        "GUID:f98ad1826802ab546a3a4c3a1e6b55c7",
+        "GUID:343deaaf83e0cee4ca978e7df0b80d21",
+        "GUID:2bafac87e7f4b9b418d9448d219b01ab"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

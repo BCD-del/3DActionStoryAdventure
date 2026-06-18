@@ -1,0 +1,11 @@
+{
+  "name": "com.ma.core",
+  "displayName": "MA Core",
+  "version": "2.0.13",
+  "unity": "2021.3",
+  "description": "A core library of utilities and extensions for Unity.",
+  "dependencies": {
+    "com.unity.render-pipelines.core": "12.1.0",
+    "com.unity.settings-manager": "2.0.1"
+  }
+}

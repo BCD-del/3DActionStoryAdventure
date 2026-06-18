@@ -1,0 +1,28 @@
+{
+    "name": "MA.Collections",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2665a8d13d1b3f18800f46e256720795",
+        "GUID:e0cd26848372d4e5c891c569017e11f1",
+        "GUID:d8b63aba1907145bea998dd612889d6b",
+        "GUID:851fe6909435cd6449ef7a4dd78a016c",
+        "GUID:776ab4a02811c314d9a1bf27227226aa",
+        "GUID:e1caf2008c0070b4cb979ca0757745eb",
+        "GUID:5d93a63b96024c708027c78fbc4f153e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.collections",
+            "expression": "2.0.0",
+            "define": "HAS_PACKAGE_UNITY_COLLECTIONS_2_0_0"
+        }
+    ],
+    "noEngineReferences": false
+}
