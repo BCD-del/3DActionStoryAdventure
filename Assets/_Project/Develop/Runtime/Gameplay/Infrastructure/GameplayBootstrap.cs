@@ -8,7 +8,6 @@ using UnityEngine;
 using Assets._Project.Develop.Runtime.Gameplay.Features.AI;
 using Assets._Project.Develop.Runtime.Gameplay.Features.MainHero;
 using Assets._Project.Develop.Runtime.Utilites.ConfigsManagment;
-using Assets._Project.Develop.Runtime.Configs.MainHero;
 using Assets._Project.Develop.NPCConfigsGameplay.NPCConfigs;
 using Assets._Project.Develop.Runtime.Gameplay.Features.NPC;
 using Assets._Project.Develop.Runtime.Configs.Gameplay.Levels;
@@ -16,7 +15,6 @@ using Assets._Project.Develop.Runtime.Configs.Gameplay.Moveables;
 using Assets._Project.Develop.Runtime.Gameplay.Features.Moveables;
 using Random = UnityEngine.Random;
 using Assets._Project.Develop.Runtime.Configs.Gameplay.Camera;
-using Assets._Project.Develop.Runtime.Gameplay.Features.CameraFeature;
 
 namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 {
@@ -60,9 +58,12 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
             _brainsContext = _container.Resolve<AIBrainsContext>();
 
             CreateMainHero();
+
+            /*
             CreateNPC();
             CreateMoveable();
-            CreateCamera();
+            */
+
             yield break;
         }
 
@@ -85,17 +86,9 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
         private void CreateMainHero()
         {
             _mainHero = _container.Resolve<MainHeroFactory>()
-                .Create2(_container.Resolve<ConfigsProviderService>()
+                .Create(_container.Resolve<ConfigsProviderService>()
                 .GetConfig<LevelsListConfig>()
                 .GetBy(_inputArgs.LevelNumber).MainHeroSpawnPoint);
-        }
-
-        private void CreateCamera()
-        {
-            ConfigsProviderService configsProviderService = _container.Resolve<ConfigsProviderService>();
-            CameraConfig config = configsProviderService.GetConfig<CameraConfig>();
-            GameObject camera = _container.Resolve<CameraFactory>().CreateCamera(config);
-            camera.transform.position = configsProviderService.GetConfig<LevelsListConfig>().GetBy(_inputArgs.LevelNumber).CameraSpawnPoint;
         }
 
         public override void Run()
@@ -107,11 +100,8 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
         {
             _brainsContext?.Update(Time.deltaTime);
             _entitiesLifeContext?.Update(Time.deltaTime);
-
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                _mainHero.CurrentHealth.Value -= Random.Range(1, 10);
-            }
+                 
+      
         }
     }
 }

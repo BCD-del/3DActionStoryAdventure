@@ -70,7 +70,7 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.MainHero
             return entity;
         }*/
 
-        public Entity Create2(Vector3 position)
+        public Entity Create(Vector3 position)
         {
             
             MainHeroConfig config = _configsProviderService.GetConfig<MainHeroConfig>();
@@ -84,20 +84,6 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.MainHero
 
             return entity;
         }
-
-
-
-
-
-        public GameObject CreateMainHero(MainHeroConfig config, Vector3 position)
-        {
-            ResourcesAssetsLoader resourcesAssetsLoader = _container.Resolve<ResourcesAssetsLoader>();
-            GameObject mainHeroPrefab = resourcesAssetsLoader.Load<GameObject>(config.PrefabPath);
-            GameObject instance = GameObject.Instantiate(mainHeroPrefab, position, Quaternion.identity);
-
-            return instance;
-        }
-
 
         private Dictionary<StatTypes, float> GetStats()
         {

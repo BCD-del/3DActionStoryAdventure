@@ -5,7 +5,6 @@ using Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Mono;
 using Assets._Project.Develop.Runtime.Gameplay.Features.ApplyDamage;
 using Assets._Project.Develop.Runtime.Gameplay.Features.Attack;
 using Assets._Project.Develop.Runtime.Gameplay.Features.Attack.MeleeAttack;
-using Assets._Project.Develop.Runtime.Gameplay.Features.CameraFeature;
 using Assets._Project.Develop.Runtime.Gameplay.Features.ContactTakeDamage;
 using Assets._Project.Develop.Runtime.Gameplay.Features.InputFeature;
 using Assets._Project.Develop.Runtime.Gameplay.Features.LifeCycle;
@@ -51,7 +50,11 @@ namespace Assets._Project.Develop.Runtime.Gameplay.EntitiesCore
                .AddMoveSpeed(new ReactiveVariable<float>(config.MoveSpeed))
                .AddSprintMoveSpeedMultiplier(new ReactiveVariable<float>(config.SprintMoveSpeedMultiplier))
                .AddMoveDirection()
+               .AddRotationDirection()
+               .AddRotationSpeed()
                .AddIsMoving()
+               
+             
 
                .AddStartAttackRequest()
                .AddStartAttackEvent()
@@ -60,29 +63,27 @@ namespace Assets._Project.Develop.Runtime.Gameplay.EntitiesCore
                .AddInAttackProcess()
                .AddAttackDelayModifiedTime(new ReactiveVariable<float>(config.AttackDelay))
                .AddAttackDelayEndEvent()
-
                .AddAttackCooldownModifiedTime(new ReactiveVariable<float>(config.AttackCooldown))
                .AddAttackCooldownCurrentTime()
                .AddInAttackCooldown()
-
-
-
-
                .AddEndAttackEvent()
                ;
 
-            ICompositeCondition canStartAttack = new CompositeCondition()
+            ICompositeCondition canStartAttack = new CompositeCondition();
+            ICompositeCondition canMove = new CompositeCondition()
                 .Add(new FuncCondition(() => entity.IsMoving.Value == false))
                 .Add(new FuncCondition(() => entity.AttackCooldownCurrentTime.Value <= 0))
                 ;
 
             entity
                 .AddCanStartAttack(canStartAttack)
+                .AddCanMove(canMove)
                 ;
 
             entity
+                // .AddSystem(new PlayerInputSystem(_container.Resolve<IInputService>()))
+
                 .AddSystem(new CharacterControllerLocomotionSystem())
-                .AddSystem(new PlayerInputSystem(_container.Resolve<IInputService>()))
 
                 .AddSystem(new StartAttackSystem())
                 .AddSystem(new AttackProcessTimerSystem())

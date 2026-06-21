@@ -683,7 +683,7 @@ MonoBehaviour:
   - {fileID: 4185621458730016749}
   - {fileID: 5225251238235234869}
   - {fileID: -3825052537689637808}
-  - {fileID: 3349702018998875817}
+  - {fileID: 3005416570414254032}
 --- !u!114 &361272942426628137
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -745,7 +745,7 @@ MonoBehaviour:
   cropToFit:
     m_OverrideState: 1
     m_Value: 1
---- !u!114 &3349702018998875817
+--- !u!114 &3005416570414254032
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}

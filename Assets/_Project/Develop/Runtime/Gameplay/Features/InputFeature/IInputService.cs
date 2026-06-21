@@ -7,7 +7,9 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Features.InputFeature
         bool IsEnabled { get; set; }
 
         Vector3 MoveDirection { get; }
-        Vector3 RotateDirection { get; }
+        Vector2 LookDirection { get; }
         bool IsAttackKeyPressed { get; }
+        float ZoomInput { get; }
+
     }
 }

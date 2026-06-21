@@ -7,7 +7,7 @@ using Assets._Project.Develop.Runtime.Gameplay.EntitiesCore.Mono;
 using Assets._Project.Develop.Runtime.Gameplay.Features.AbilitiesDroppingFeature;
 using Assets._Project.Develop.Runtime.Gameplay.Features.AbilitiesFeature;
 using Assets._Project.Develop.Runtime.Gameplay.Features.AI;
-using Assets._Project.Develop.Runtime.Gameplay.Features.CameraFeature;
+using Assets._Project.Develop.Runtime.Gameplay.Features.Camera;
 using Assets._Project.Develop.Runtime.Gameplay.Features.Enemies;
 using Assets._Project.Develop.Runtime.Gameplay.Features.InputFeature;
 using Assets._Project.Develop.Runtime.Gameplay.Features.LevelUPFeature;
@@ -19,7 +19,6 @@ using Assets._Project.Develop.Runtime.Gameplay.Features.PauseFeature;
 using Assets._Project.Develop.Runtime.Gameplay.Features.StageFeature;
 using Assets._Project.Develop.Runtime.Gameplay.States;
 using Assets._Project.Develop.Runtime.Meta.Features.Stats;
-using Assets._Project.Develop.Runtime.Meta.Features.StatsUpgrade;
 using Assets._Project.Develop.Runtime.UI;
 using Assets._Project.Develop.Runtime.UI.Core;
 using Assets._Project.Develop.Runtime.UI.Gameplay;
@@ -28,7 +27,6 @@ using Assets._Project.Develop.Runtime.Utilites.ConfigsManagment;
 using Assets._Project.Develop.Runtime.Utilites.CoroutinesManagment;
 using Assets._Project.Develop.Runtime.Utilites.DataManagment.DataProviders;
 using Assets._Project.Develop.Runtime.Utilites.SceneManagement;
-using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
@@ -80,7 +78,7 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 
             container.RegisterAsSingle(CreateMoveableHolderService);
 
-            container.RegisterAsSingle(CreateCameraFactory);
+            container.RegisterAsSingle(CreateCameraService).NonLazy();
 
             container.RegisterAsSingle(CreateEnemiesFactory);
             container.RegisterAsSingle(CreateStagesFactory);
@@ -109,9 +107,10 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
             return new MoveablesFactory(container);
         }
 
-        private static CameraFactory CreateCameraFactory (DIContainer container)
+
+        private static CameraService CreateCameraService(DIContainer c)
         {
-            return new CameraFactory(container);
+            return new CameraService(c.Resolve<MainHeroHolderService>(), c.Resolve<ResourcesAssetsLoader>());
         }
 
         private static LootPullingService CreateLootPullingService(DIContainer c)
@@ -211,7 +210,7 @@ namespace Assets._Project.Develop.Runtime.Gameplay.Infrastructure
 
         private static DesktopInput CreateDesktopInput(DIContainer container)
         {
-            return new DesktopInput();
+            return new DesktopInput(new PlayerInput());
         }
 
         private static AIBrainsContext CreateAIBrainContext(DIContainer container)
